@@ -1,0 +1,16 @@
+body {
+  margin-left: 8px;
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+ul.employeeList {
+  list-style-type: none;
+}
+button.addEmployee {
+  margin: 10px;
+  font: inherit;
+}
+button.addEmployee:hover {
+  cursor: pointer;
+}
