@@ -10,6 +10,7 @@ onload = function () {
 
   $addEmployeeButton.addEventListener('click', function (event) {
     var newEmployee = createEmployee(employees);
+
     if (typeof newEmployee === 'string') {
       alert (newEmployee);
       return;
@@ -18,6 +19,7 @@ onload = function () {
     var isDuplicate = employees.some(function (employee) {
       return employee.firstName === newEmployee.firstName && employee.lastName === newEmployee.lastName;
     });
+
     if (isDuplicate) {
       alert('This employee has already added');
       return;
@@ -51,15 +53,16 @@ onload = function () {
 }
 
 function createEmployee(arrayOfEmployees) {
-  var newEmployee = {};
-  var employee = arrayOfEmployees[0];
-  var employeeInfo = Object.keys(employee);
+  var newEmployee = {}
+    , employee = arrayOfEmployees[0]
+    , employeeInfo = Object.keys(employee);
 
   for (var index = 0; index < employeeInfo.length; index++) {
     var category = employeeInfo[index]
       , categoryData = prompt('Enter ' + category, employee[category]);
-
+    
     valid = validation(categoryData, category);
+
     if (!valid) {
       categoryData = categoryData.trim();
       newEmployee[category] = categoryData;
@@ -83,6 +86,7 @@ function validation(textForValidation, category) {
     }
     result = regExp.test(textForValidation);
   }
+
   if (!result) {
     result = 'Wrong format of ' + category;
   } else {
